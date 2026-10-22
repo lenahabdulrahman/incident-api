@@ -1,6 +1,7 @@
 from collections import Counter
 from datetime import datetime
 from typing import Optional
+from fastapi.responses import RedirectResponse
 import re
 
 from fastapi import FastAPI
@@ -43,9 +44,9 @@ class SlaInput(BaseModel):
     opened_at: datetime
     resolved_at: Optional[datetime] = None
 
-@app.get("/")
+@app.get("/", include_in_schema=False)
 def root():
-    return {"service": "incident-api", "docs": "/docs", "health": "/health"}
+    return RedirectResponse(url="/docs")
 
 
 @app.get("/health")
