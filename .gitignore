@@ -2,3 +2,9 @@ __pycache__/
 .venv/
 .vercel/
 .pytest_cache/
+# Secrets
+.env
+.env.*
+*.pem
+*.key
+*.tfvars
