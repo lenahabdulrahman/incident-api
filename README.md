@@ -92,3 +92,10 @@ helm rollback incident-api 1
 
 - **GitHub Actions** runs the tests on every push (see the badge above).
 - **GitLab CI**: `.gitlab-ci.yml` defines `test` and `build` stages. Running pipelines on gitlab.com requires account verification, so this file is provided as a reference for now.
+
+## Screenshots
+
+![Kubernetes](docs/kubernetes.png)
+![Probes](docs/probes.png)
+![Helm](docs/helm.png)
+![Swagger on Kubernetes](docs/swagger-k8s.png)
