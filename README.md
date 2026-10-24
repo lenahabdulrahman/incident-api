@@ -56,6 +56,6 @@ Tests run automatically on every push with GitHub Actions.
 - [x] REST API with Swagger docs, deployed on Vercel
 - [x] Unit tests and CI (GitHub Actions)
 - [x] Dockerfile
-- [x] Kubernetes manifests with health probes (minikube)git add README.md
+- [x] Kubernetes manifests with health probes (minikube)
 - [x] Helm chart
 - [ ] GitLab CI pipeline
