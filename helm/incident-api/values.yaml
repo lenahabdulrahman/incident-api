@@ -1,0 +1,19 @@
+replicaCount: 2
+
+image:
+  repository: incident-api
+  tag: latest
+  pullPolicy: Never
+
+service:
+  type: NodePort
+  port: 80
+  targetPort: 8000
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+  limits:
+    cpu: 250m
+    memory: 128Mi
