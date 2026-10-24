@@ -58,4 +58,37 @@ Tests run automatically on every push with GitHub Actions.
 - [x] Dockerfile
 - [x] Kubernetes manifests with health probes (minikube)
 - [x] Helm chart
-- [ ] GitLab CI pipeline
+- [ ] GitLab CI pipeline (file written; running it requires GitLab account verification)
+
+## Docker
+
+```bash
+docker build -t incident-api .
+docker run --rm -p 8000:8000 incident-api
+```
+
+## Kubernetes (minikube)
+
+```bash
+minikube start --driver=docker
+minikube image load incident-api:latest
+kubectl apply -f k8s/
+kubectl get pods
+minikube service incident-api
+```
+
+The deployment runs 2 replicas with readiness and liveness probes on `/health`.
+
+## Helm
+
+```bash
+helm install incident-api helm/incident-api
+helm upgrade incident-api helm/incident-api --set replicaCount=3
+helm history incident-api
+helm rollback incident-api 1
+```
+
+## CI/CD
+
+- **GitHub Actions** runs the tests on every push (see the badge above).
+- **GitLab CI**: `.gitlab-ci.yml` defines `test` and `build` stages. Running pipelines on gitlab.com requires account verification, so this file is provided as a reference for now.
